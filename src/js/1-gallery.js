@@ -1,3 +1,6 @@
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 const images = [
       {
         preview:
@@ -65,7 +68,6 @@ const images = [
     ];
 
 const gallery = document.querySelector(".gallery");
-gallery.addEventListener("click", openImg);
 
 for(const item of images){
     gallery.insertAdjacentHTML("beforeend", 
@@ -81,6 +83,14 @@ for(const item of images){
  `)
 };
 
+let galleryEl = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionSelector: 'img',
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    captionDelay: 250
 
+});
+galleryEl.on('show.simplelightbox');
 
     
