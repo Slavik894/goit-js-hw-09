@@ -3,7 +3,6 @@ const formData ={
     message: ""
 }
 const localStorageKey = "feedback-form-state"
-
 const formEl = document.querySelector(".feedback-form");
 
 const savedData = localStorage.getItem(localStorageKey);
@@ -37,7 +36,7 @@ function handleSubmit(event){
     const message = formEl.elements.message.value.trim();
 
     if(email === "" || message === ""){
-        alert('All form fields must be filled in');
+        alert('Fill please all fields');
         return
     }
         console.log(formData);
