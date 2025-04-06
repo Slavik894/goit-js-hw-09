@@ -69,8 +69,7 @@ const images = [
 
 const gallery = document.querySelector(".gallery");
 
-for(const item of images){
-    gallery.insertAdjacentHTML("beforeend", 
+const markup = images.map(item =>  
         ` <li class="gallery-item">
 	<a class="gallery-link" href="${item.original}">
 		<img 
@@ -79,9 +78,8 @@ for(const item of images){
 		  alt="${item.description}" 
 		/>
 	</a>
-</li>
- `)
-};
+</li>`).join("");
+ gallery.insertAdjacentHTML("beforeend", markup);
 
 let galleryEl = new SimpleLightbox('.gallery a', {
     captions: true,
@@ -91,6 +89,6 @@ let galleryEl = new SimpleLightbox('.gallery a', {
     captionDelay: 250
 
 });
-galleryEl.on('show.simplelightbox');
+
 
     
